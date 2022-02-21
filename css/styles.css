@@ -1,4 +1,7 @@
 body {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   margin: 0;
   background-image: url("../images/cats.jpg");
   background-repeat: repeat;
@@ -58,6 +61,7 @@ li {
   margin: 10px;
 }
 
+.main-item a,
 .item a,
 nav a {
   font-size: 1.5rem;
@@ -74,18 +78,36 @@ nav a {
   flex-wrap: wrap;
 }
 
+.main-item a,
 .item a {
   padding: 0;
+  color: darkblue;
 }
 
 img {
   width: 100%;
 }
 
+.main-item,
 .item {
+  width: 100%;
   max-width: 200px;
   background-color: lightgray;
   border-radius: 10px;
   padding: 10px;
   margin: 10px;
+}
+
+.main-item {
+  width: 100%;
+  max-width: 700px;
+  padding: 20px;
+}
+
+.alive {
+  color: green;
+}
+
+.dead {
+  color: red;
 }
