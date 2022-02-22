@@ -3,10 +3,12 @@ import {callApi, errorMessage} from "./components/components.js";
 const url = "https://rickandmortyapi.com/api/";
 // Three resource sets available, add characters, location, and episode to end to get all info.
 const characterContainer = document.querySelector(".characters");
+const showMoreBtn = document.querySelector("#show-more");
 
 //fetch api character list, they are split into arrays of 20, default without page no is first 20
 async function callApiCharacters(url, query, container, runs) {
   try{
+    addLoader(container);
     const data = await callApi(url + query);
     console.log(data);
     //call function to generate character list html
@@ -17,9 +19,17 @@ async function callApiCharacters(url, query, container, runs) {
   }
 }
 
+function addLoader(container){
+  container.innerHTML = `<div class="loader">
+                          <div class="rotate"></div>
+                          <div class="rotate30"></div>
+                          <div class="rotate70"></div>
+                        </div>`;
+}
+
 //create items for homepage
 function createCharacterContent(data, container, runs) {
-  container.innerHTML += "";
+  container.innerHTML = "";
   for(let i = 0; i < runs; i++){
     const id = data.results[i].id;
     const name = data.results[i].name;
@@ -34,7 +44,20 @@ function createCharacterContent(data, container, runs) {
                               </a>
                               <p>Species: ${species}</p>
                               <p>Origin: ${origin.name}</p>`;
+
+  } 
+  if (runs === 20){
+    showMoreBtn.classList.add("hidden");
   }
+  // } else {}
 }
 
+// initial call to put 10 result on page
 callApiCharacters(url, "character", characterContainer, 10);
+
+//create function to pass other function with parameters needed
+function printAll(){
+  return callApiCharacters(url, "character", characterContainer, 20)
+}
+
+showMoreBtn.addEventListener("click", printAll);

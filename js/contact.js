@@ -10,6 +10,7 @@ const address = document.querySelector("#address");
 const addressError = document.querySelector(".error-address");
 const successContainer = document.querySelector(".success");
 
+//clear form on refresh
 fullname.value = "";
 email.value = "";
 subject.value = "";

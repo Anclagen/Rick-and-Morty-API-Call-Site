@@ -22,14 +22,24 @@
     <main class="page-wrapper">
       <h1>Get Riggity Riggity Wrecked Son!</h1>
       <h2>Characters</h2>
-      <div class="characters"></div>
+      <div class="characters">
+        <div class="loader">
+          <div class="rotate"></div>
+          <div class="rotate30"></div>
+          <div class="rotate70"></div>
+        </div>
+      </div>
+      <div class="characters-nav">
+        <button class="button" id="show-more">Show Me More</button>
+        <button class="next-page hidden">Previous</button>
+        <button class="next-page hidden">Next</button>
+      </div>
     </main>
     <footer>
       <div class="page-wrapper">
         <p>Powered by: <a href="https://rickandmortyapi.com/">The Rick and Morty API</a></p>
       </div>
     </footer>
-    <script src="/js/components/components.js" type="module"></script>
     <script src="/js/index.js" type="module"></script>
   </body>
 </html>

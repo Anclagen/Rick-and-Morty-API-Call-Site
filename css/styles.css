@@ -72,11 +72,10 @@ nav a {
   padding: 20px;
 }
 
-.characters,
-.locations,
-.episodes {
+.characters {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .main-item a,
@@ -157,4 +156,133 @@ form {
   font-size: 1.4rem;
   font-weight: 700;
   text-align: center;
+}
+
+.loader {
+  width: 200px;
+  height: 250px;
+  background-color: #78ff39;
+  border-radius: 50%;
+  position: relative;
+  border-top: 10px #c2ff3b;
+  border-bottom: 20px #c2ff3b;
+  border-left: 25px #c2ff3b;
+  border-right: 7px #c2ff3b;
+  border-style: double;
+  margin-bottom: 200px;
+  animation: colour-change 5s linear infinite;
+}
+
+.rotate70,
+.rotate30,
+.rotate {
+  top: 20px;
+  border-radius: 60%;
+  position: absolute;
+  width: 60px;
+  height: 70px;
+  border-top: 10px #009600;
+  border-bottom: 20px #009600;
+  border-left: 25px #009600;
+  border-right: 7px #009600;
+  border-style: double;
+  box-shadow: 5px 5px 20px #009600;
+  animation: spin-clockwise 5s linear infinite;
+}
+
+.rotate {
+  width: 160px;
+  height: 180px;
+  border-top: 10px #009600;
+  border-bottom: 27px #009600;
+  border-left: 5px #009600;
+  border-right: 20px #009600;
+  border-style: double;
+}
+
+.rotate30 {
+  width: 100px;
+  height: 115px;
+  top: 55px;
+  left: 40px;
+  border-color: #c2ff3b;
+  animation: spin-counter-clockwise 5s linear infinite;
+}
+
+.rotate70 {
+  top: 90px;
+  left: 80px;
+  width: 30px;
+  height: 45px;
+}
+
+@keyframes spin-clockwise {
+  0% {
+    rotate: 0deg;
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(-80deg);
+  }
+  100% {
+    rotate: 360deg;
+    filter: hue-rotate(0deg);
+  }
+}
+
+@keyframes spin-counter-clockwise {
+  0% {
+    rotate: 0deg;
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(80deg);
+  }
+  100% {
+    rotate: -360deg;
+    filter: hue-rotate(0deg);
+  }
+}
+
+@keyframes colour-change {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(30deg);
+  }
+  100% {
+    filter: hue-rotate(0deg);
+  }
+}
+
+.loader::after {
+  color: white;
+  text-shadow: 3px 3px rgba(0, 0, 0, 0.9);
+  font-size: 1.1rem;
+  text-align: center;
+  content: "Loading....... Opening a portal to the characters";
+  position: absolute;
+  bottom: -120px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.characters-nav {
+  width: 100%;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.button {
+  padding: 10px;
+  background-color: green;
+  border-color: #c2ff3b;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.hidden {
+  display: none;
 }

@@ -38,6 +38,7 @@ async function createCharacter(data, container){
     const species = data.species;
     const location = data.location;
     const gender = data.gender;
+    container.innerHTML = "";
 
     //adding custom styling to status
     let status = "<p>Status: Unknown</p>"
