@@ -4,6 +4,7 @@ body {
   grid-template-rows: auto 1fr auto;
   margin: 0;
   background-image: url("../images/cats.jpg");
+  /*https://www.reddit.com/r/rickandmorty/comments/cv3uaz/noticed_a_disturbing_lack_of_space_cat_wallpapers/ */
   background-repeat: repeat;
   background-size: cover;
   font-family: Arial, Helvetica, sans-serif;
@@ -88,6 +89,7 @@ img {
   width: 100%;
 }
 
+.message,
 .main-item,
 .item {
   width: 100%;
@@ -98,6 +100,7 @@ img {
   margin: 10px;
 }
 
+.message,
 .main-item {
   width: 100%;
   max-width: 700px;
@@ -110,4 +113,48 @@ img {
 
 .dead {
   color: red;
+}
+
+textarea {
+  height: 85%;
+  min-height: 150px;
+  resize: none;
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 1rem;
+  margin: 20px 0 5px 0;
+}
+
+input {
+  margin-bottom: 20px;
+}
+
+input[type="submit"] {
+  margin-top: 20px;
+}
+
+section.contact-form input.cta {
+  margin: 20px 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  min-width: 450px;
+  width: 100%;
+}
+
+.error {
+  color: red;
+  font-size: 1rem;
+}
+
+.success {
+  background-color: green;
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
 }
