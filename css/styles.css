@@ -39,11 +39,11 @@ header,
 footer {
   background-color: green;
   margin-top: 0;
+  text-align: center;
 }
 
 footer {
   margin: 0;
-  text-align: center;
   padding: 10px;
   color: white;
 }
@@ -62,6 +62,8 @@ li {
   margin: 10px;
 }
 
+/*Page content styling*/
+
 .main-item a,
 .item a,
 nav a {
@@ -72,6 +74,11 @@ nav a {
   padding: 20px;
 }
 
+.main-item img,
+.item img {
+  border: 2px solid green;
+}
+
 .characters {
   display: flex;
   flex-wrap: wrap;
@@ -79,9 +86,15 @@ nav a {
 }
 
 .main-item a,
-.item a {
+.item a,
+.item a h3 {
+  margin-top: 0;
   padding: 0;
   color: darkblue;
+}
+
+.item p {
+  margin: 5px 0;
 }
 
 img {
@@ -97,6 +110,11 @@ img {
   border-radius: 10px;
   padding: 10px;
   margin: 10px;
+  box-sizing: border-box;
+  border-top: 10px solid green;
+  border-bottom: 20px double green;
+  border-left: 5px solid green;
+  border-right: 7px double green;
 }
 
 .message,
@@ -113,6 +131,8 @@ img {
 .dead {
   color: red;
 }
+
+/*Form contact page styling*/
 
 textarea {
   height: 85%;
@@ -145,6 +165,8 @@ form {
   width: 100%;
 }
 
+/*error and success colours for messages*/
+
 .error {
   color: red;
   font-size: 1rem;
@@ -156,8 +178,14 @@ form {
   font-size: 1.4rem;
   font-weight: 700;
   text-align: center;
+  border: none;
 }
 
+.success p {
+  margin: 0;
+}
+
+/*loader css I many have had too much fun and gone a little overboard */
 .loader {
   width: 200px;
   height: 250px;
@@ -216,6 +244,40 @@ form {
   height: 45px;
 }
 
+.loader-cat {
+  position: absolute;
+  width: 100px;
+  animation: crazy-spin 5s linear infinite;
+}
+
+@keyframes crazy-spin {
+  0% {
+    rotate: 0deg;
+    filter: hue-rotate(0deg);
+    top: 0;
+    left: 0;
+  }
+  25% {
+    top: 100px;
+    left: 50px;
+  }
+  50% {
+    filter: hue-rotate(-80deg);
+    top: 150px;
+    left: 40px;
+  }
+  75% {
+    top: 120px;
+    left: 80px;
+  }
+  100% {
+    rotate: 360deg;
+    filter: hue-rotate(0deg);
+    top: 0px;
+    left: 0px;
+  }
+}
+
 @keyframes spin-clockwise {
   0% {
     rotate: 0deg;
@@ -268,6 +330,7 @@ form {
   transform: translate(-50%, 0);
 }
 
+/*Button on index*/
 .characters-nav {
   width: 100%;
   text-align: center;

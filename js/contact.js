@@ -1,7 +1,7 @@
 //assigning variables
 const form = document.querySelector("#contact-form");
 const fullname = document.querySelector("#name");
-const nameError = document.querySelector(".error-name");
+const fullnameError = document.querySelector(".error-name");
 const email = document.querySelector("#email");
 const emailError = document.querySelector(".error-email");
 const subject = document.querySelector("#subject");
@@ -10,13 +10,7 @@ const address = document.querySelector("#address");
 const addressError = document.querySelector(".error-address");
 const successContainer = document.querySelector(".success");
 
-//clear form on refresh
-fullname.value = "";
-email.value = "";
-subject.value = "";
-address.value = "";
-
-
+//check length without spaces
 function checkLength(value, length) {
   if (value.trim().length > length) {
       return true;
@@ -25,6 +19,7 @@ function checkLength(value, length) {
   }
 }
 
+//
 function validateEmail(email) {
   //https://digitalfortress.tech/tips/top-15-commonly-used-regex/ uncommon email check.
   const emailRegEx = /^([a-z0-9_\.\+-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
@@ -43,10 +38,11 @@ function validateContactForm(submission){
   successContainer.classList.remove("main-item");
 
   if (!checkLength(fullname.value, 0)) {
-    nameError.innerHTML = `Please enter you name.`;
+    fullnameError.innerHTML = `Please enter you name.`;
     successCheck = false;
   } else{
-    nameError.innerHTML = "";
+    //clear a previous error when correcting
+    fullnameError.innerHTML = "";
   }
 
   if (!validateEmail(email)) {
@@ -73,8 +69,11 @@ function validateContactForm(submission){
   //if all validation passes form submitted and success div displayed 
   if(successCheck) {
     successContainer.classList.add("main-item")
-    successContainer.innerHTML = "Success, your query has been submitted."
+    successContainer.innerHTML = "<p>Success, your query has been submitted.</p>"
+    form.reset();
   }
+
+  
 }
 
 //on submit run validation check

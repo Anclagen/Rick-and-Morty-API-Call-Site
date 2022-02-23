@@ -1,14 +1,16 @@
-//import basic fetch function and error message.
-import {callApi, errorMessage} from "./components/components.js";
+//import basic fetch function, error message and loader generator.
+import {callApi, errorMessage, addLoader} from "./components/components.js";
 
 const url = "https://rickandmortyapi.com/api/character/";
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
+//gets the id for character selected on index
 let id = params.get("id");
-//randomiser for details page if no character is selected
-  if(id === null){
-    id = Math.floor((Math.random() * 826) + 1);
-  }
+
+//randomiser for details page if no character is selected, total of 826 characters in api.
+if(id === null){
+  id = Math.floor((Math.random() * 826) + 1);
+}
 
 //combines base url with id fetched from querystring
 const finalUrl = url + id;
@@ -18,10 +20,11 @@ const characterContainer = document.querySelector(".character");
 const pageTitle = document.querySelector("title");
 
 //fetches specific character
-async function callApiCharacters(url, container) {
+async function callApiCharacter(url, container) {
   try{
+    addLoader(container);
     const data = await callApi(url);
-    createCharacter(data, container);
+    createCharacterContent(data, container);
     } catch (error){
       console.log(error);
       errorMessage(container);
@@ -29,7 +32,7 @@ async function callApiCharacters(url, container) {
 }
 
 //async needed to add await to episode details fetches, as well as try catch for errors
-async function createCharacter(data, container){
+async function createCharacterContent(data, container){
   try{
     //assigning variables
     const name = data.name;
@@ -78,5 +81,5 @@ async function createCharacter(data, container){
   }
 }
 
-callApiCharacters(finalUrl, characterContainer);
+callApiCharacter(finalUrl, characterContainer);
 

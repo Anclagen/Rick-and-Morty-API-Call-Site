@@ -12,3 +12,12 @@ export function errorMessage(container){
                           <p> Welp! it looks like someone really screwed the pooch on this one, Morty. </p>
                         </div>`
 }
+
+export function addLoader(container){
+  container.innerHTML = `<div class="loader">
+                          <div class="rotate"></div>
+                          <div class="rotate30"></div>
+                          <div class="rotate70"></div>
+                          <img src="/images/cat.png" class="loader-cat" alt="Schrödinger's cat" />
+                        </div>`;
+}
