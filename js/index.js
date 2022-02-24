@@ -51,7 +51,7 @@ function createCharactersContent(data, container, runs) {
                               <p>Origin: ${origin.name}</p>`;
   } 
 
-  //hides the show me more button after pressed, and adds next and previous as need
+  //hides the show me more button after pressed, and adds next and previous as needed
   if (runs === 20){
     showMoreBtn.classList.add("hidden");
     //if statement needed to remove next on last page
