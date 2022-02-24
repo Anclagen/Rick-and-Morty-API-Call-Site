@@ -19,7 +19,6 @@ function checkLength(value, length) {
   }
 }
 
-//
 function validateEmail(email) {
   //https://digitalfortress.tech/tips/top-15-commonly-used-regex/ uncommon email check.
   const emailRegEx = /^([a-z0-9_\.\+-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
@@ -29,41 +28,50 @@ function validateEmail(email) {
 
 function validateContactForm(submission){
   submission.preventDefault();
+  
 
   //check runs through all if statements if one is false success container not displayed.
   let successCheck = true;
 
-  //clear success container if resubmitted
+  //clear success container if resubmitted wrong, remove main class to avoid green box
   successContainer.innerHTML = "";
   successContainer.classList.remove("main-item");
 
   if (!checkLength(fullname.value, 0)) {
     fullnameError.innerHTML = `Please enter you name.`;
+    fullname.style.border ="2px solid red";
     successCheck = false;
   } else{
     //clear a previous error when correcting
     fullnameError.innerHTML = "";
+    fullname.style.border ="1px solid grey";
   }
 
   if (!validateEmail(email)) {
     emailError.innerHTML = `Please enter a valid email address`;
+    email.style.border ="2px solid red";
     successCheck = false;
   } else{
     emailError.innerHTML = "";
+    email.style.border ="1px solid grey";
   }
 
   if (!checkLength(subject.value, 9)) {
     subjectError.innerHTML = `Your subject must have a minium of 10 characters.`;
+    subject.style.border ="2px solid red";
     successCheck = false;
   } else{
     subjectError.innerHTML = "";
+    subject.style.border ="1px solid grey";
   }
 
   if (!checkLength(address.value, 24)) {
     addressError.innerHTML = `Your address must have a minimum of 25 characters.`;
+    address.style.border ="2px solid red";
     successCheck = false;
   } else{
     addressError.innerHTML = "";
+    address.style.border ="1px solid grey";
   }
 
   //if all validation passes form submitted and success div displayed 

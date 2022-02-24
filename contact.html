@@ -23,7 +23,8 @@
       <h1>Contact Us</h1>
       <div class="success"></div>
       <div class="main-item">
-        <form id="contact-form">
+        <!--No validate to prevent some incorrect email entries preventing javascript validation function-->
+        <form id="contact-form" action="#" method="POST" novalidate>
           <label for="name">Name</label>
           <input type="text" id="name" name="name" />
           <div class="error-name error"></div>

@@ -13,6 +13,7 @@ export function errorMessage(container){
                         </div>`
 }
 
+//adding loader to page when calling api
 export function addLoader(container){
   container.innerHTML = `<div class="loader">
                           <div class="rotate"></div>

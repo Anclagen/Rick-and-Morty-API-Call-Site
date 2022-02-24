@@ -79,6 +79,7 @@ nav a {
   border: 2px solid green;
 }
 
+.characters-nav,
 .characters {
   display: flex;
   flex-wrap: wrap;
@@ -147,6 +148,7 @@ label {
 }
 
 input {
+  font-size: 1.2rem;
   margin-bottom: 20px;
 }
 
@@ -337,13 +339,21 @@ form {
   margin: 20px 0;
 }
 
+.page-number,
 .button {
   padding: 10px;
   background-color: green;
-  border-color: #c2ff3b;
+  border: 1px solid #c2ff3b;
   color: white;
   font-size: 1.1rem;
   font-weight: 600;
+  margin: 0 5px;
+}
+
+.page-number {
+  background-color: #82ad26;
+  text-shadow: 2px 2px #009600;
+  border-color: #009600;
 }
 
 .hidden {
