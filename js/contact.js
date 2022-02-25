@@ -19,6 +19,7 @@ function checkLength(value, length) {
   }
 }
 
+//validate email, no validated added to form as the email input cause problems with the js
 function validateEmail(email) {
   //https://digitalfortress.tech/tips/top-15-commonly-used-regex/ uncommon email check.
   const emailRegEx = /^([a-z0-9_\.\+-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
@@ -28,7 +29,6 @@ function validateEmail(email) {
 
 function validateContactForm(submission){
   submission.preventDefault();
-  
 
   //check runs through all if statements if one is false success container not displayed.
   let successCheck = true;

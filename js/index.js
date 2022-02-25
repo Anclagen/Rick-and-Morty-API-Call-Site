@@ -2,13 +2,14 @@
 import {callApi, errorMessage, addLoader} from "./components/components.js";
 
 // const cors = "https://noroffcors.herokuapp.com/";
-const url = "https://rickandmortyapi.com/api/";
-
 // Three resource sets available; add character, location, and episode to end to of url all info.
+const url = "https://rickandmortyapi.com/api/";
 const characterContainer = document.querySelector(".characters");
 const showMoreBtn = document.querySelector("#show-more");
 const previousBtn = document.querySelector(".previous-page");
 const nextBtn = document.querySelector(".next-page");
+const pageNumberContainer = document.querySelector(".page-number")
+
 
 //fetch api character list, they are split into arrays of 20, default without page no is page 1
 async function callApiCharacters(url, query, container, runs) {
@@ -24,6 +25,7 @@ async function callApiCharacters(url, query, container, runs) {
     errorMessage(container);
   }
 }
+
 
 //create characters for selection on the homepage
 function createCharactersContent(data, container, runs) {
@@ -51,8 +53,23 @@ function createCharactersContent(data, container, runs) {
                               <p>Origin: ${origin.name}</p>`;
   } 
 
-  //hides the show me more button after pressed, and adds next and previous as needed
-  if (runs === 20){
+  //add navigation
+  addRemoveNavBtns(runs, data);
+}
+
+
+// initial call to put 10 result on page
+callApiCharacters(url, "character", characterContainer, 10);
+
+//results navigation, to browse other pages of the api
+
+let pageNumber = 1; 
+//required url ending, just add page number
+const pageQuery = "character/?page="
+
+//function to add navigation buttons as needed
+function addRemoveNavBtns(runs, data){
+if (runs === 20){
     showMoreBtn.classList.add("hidden");
     //if statement needed to remove next on last page
     if(pageNumber < data.info.pages){
@@ -66,15 +83,6 @@ function createCharactersContent(data, container, runs) {
     }
   }
 }
-
-// initial call to put 10 result on page
-callApiCharacters(url, "character", characterContainer, 10);
-
-//results navigation 
-
-let pageNumber = 1; 
-const pageQuery = "character/?page="
-const pageNumberContainer = document.querySelector(".page-number")
 
 //create function to pass into event listener with parameters needed
 function fetchMoreContent(){
@@ -102,6 +110,6 @@ function fetchPreviousPage(){
   pageNumberContainer.innerHTML = `Page ${pageNumber} of 42`
 }
 
-//previous and next buttons
+//previous and next buttons event listeners
 previousBtn.addEventListener("click", fetchPreviousPage);
 nextBtn.addEventListener("click", fetchNextPage);

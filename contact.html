@@ -26,16 +26,16 @@
         <!--No validate to prevent some incorrect email entries preventing javascript validation function-->
         <form id="contact-form" action="#" method="POST" novalidate>
           <label for="name">Name</label>
-          <input type="text" id="name" name="name" />
+          <input type="text" id="name" name="name" placeholder="Your name" />
           <div class="error-name error"></div>
           <label for="email">E-mail</label>
-          <input type="email" id="email" name="email" />
+          <input type="email" id="email" name="email" placeholder="Your email" />
           <div class="error-email error"></div>
           <label for="subject">Subject</label>
-          <input type="text" id="subject" name="subject" />
+          <input type="text" id="subject" name="subject" placeholder="Your subject" />
           <div class="error-subject error"></div>
           <label for="address">Address</label>
-          <textarea id="address" name="address"></textarea>
+          <textarea id="address" name="address" placeholder="Your Address"></textarea>
           <div class="error-address error"></div>
           <input type="submit" value="Submit" class="cta button" />
         </form>
