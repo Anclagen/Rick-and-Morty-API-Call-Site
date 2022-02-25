@@ -1,4 +1,4 @@
-//import basic fetch function, error message and loader generator.
+//import shared functions between details and index (fetch function, error message and loader generator.)
 import {callApi, errorMessage, addLoader} from "./components/components.js";
 
 // const cors = "https://noroffcors.herokuapp.com/";
@@ -17,7 +17,6 @@ async function callApiCharacters(url, query, container, runs) {
     //add loader to page, needed when showing more
     addLoader(container);
     const data = await callApi(url + query);
-    console.log(data);
     //call function to generate character list html
     createCharactersContent(data, container, runs);
   } catch (error){
@@ -25,7 +24,6 @@ async function callApiCharacters(url, query, container, runs) {
     errorMessage(container);
   }
 }
-
 
 //create characters for selection on the homepage
 function createCharactersContent(data, container, runs) {
@@ -57,15 +55,13 @@ function createCharactersContent(data, container, runs) {
   addRemoveNavBtns(runs, data);
 }
 
-
 // initial call to put 10 result on page
 callApiCharacters(url, "character", characterContainer, 10);
 
-//results navigation, to browse other pages of the api
 
+
+//results navigation, to browse other pages of the api
 let pageNumber = 1; 
-//required url ending, just add page number
-const pageQuery = "character/?page="
 
 //function to add navigation buttons as needed
 function addRemoveNavBtns(runs, data){
@@ -75,7 +71,7 @@ if (runs === 20){
     if(pageNumber < data.info.pages){
     nextBtn.classList.remove("hidden");
     }
-    //adds for page two and removes when going back
+    //adds previous for page two and removes when going back
     if(pageNumber > 1){
       previousBtn.classList.remove("hidden");
     } else {
@@ -84,7 +80,10 @@ if (runs === 20){
   }
 }
 
-//create function to pass into event listener with parameters needed
+//required url ending, just add page number
+const pageQuery = "character/?page="
+
+// add the last 10 results of page one
 function fetchMoreContent(){
   callApiCharacters(url, "character", characterContainer, 20);
   pageNumberContainer.classList.remove("hidden");

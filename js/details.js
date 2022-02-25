@@ -1,4 +1,4 @@
-//import basic fetch function, error message and loader generator.
+//import shared functions between details and index (fetch function, error message and loader generator.)
 import {callApi, errorMessage, addLoader} from "./components/components.js";
 
 const url = "https://rickandmortyapi.com/api/character/";
@@ -43,7 +43,7 @@ async function createCharacterContent(data, container){
     const gender = data.gender;
     container.innerHTML = "";
 
-    //adding custom styling to status
+    //adding custom styling to status based on dead or alive
     let status = "<p>Status: Unknown</p>"
     if (data.status === "Alive") {
       status = `<p>Status: <span class="alive">Alive</span></p>`
@@ -56,11 +56,10 @@ async function createCharacterContent(data, container){
     const lastEpisode = data.episode[episodeArrayLength];
     const firstEpisode = data.episode[0];
 
-    //getting fetch first and last episode data 
+    //getting fetch first and last episode names, and season numbers
     const getFirstEpisode = await callApi(firstEpisode);
     const getLastEpisode = await callApi(lastEpisode);
 
-    
     container.innerHTML += `<div class="main-item">
                             <h3>${name}</h3>
                             <img src=${image} alt="${name}" />
@@ -81,5 +80,5 @@ async function createCharacterContent(data, container){
   }
 }
 
-callApiCharacter(finalUrl, characterContainer);
 
+callApiCharacter(finalUrl, characterContainer);
