@@ -41,7 +41,6 @@ async function createCharacterContent(data, container){
     const species = data.species;
     const location = data.location;
     const gender = data.gender;
-    container.innerHTML = "";
 
     //adding custom styling to status based on dead or alive
     let status = "<p>Status: Unknown</p>"
@@ -59,6 +58,9 @@ async function createCharacterContent(data, container){
     //getting fetch first and last episode names, and season numbers
     const getFirstEpisode = await callApi(firstEpisode);
     const getLastEpisode = await callApi(lastEpisode);
+
+    //placed below episode fetches to leaves loader in place
+    container.innerHTML = "";
 
     container.innerHTML += `<div class="main-item">
                             <h3>${name}</h3>
