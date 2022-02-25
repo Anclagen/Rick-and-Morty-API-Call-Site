@@ -10,79 +10,55 @@ const address = document.querySelector("#address");
 const addressError = document.querySelector(".error-address");
 const successContainer = document.querySelector(".success");
 
-//check length without spaces
-function checkLength(value, length) {
-  if (value.trim().length > length) {
-      return true;
+//check length without spaces, and generate error if validation fails
+function validatedInputLength(input, length, error) {
+  if (input.value.trim().length > length) {
+    error.innerHTML = "";
+    input.style.border ="1px solid grey";
+    return true;
   } else {
-      return false;
+    error.innerHTML = `Your ${input.name} must have a minium of ${length + 1} characters.`;
+    input.style.border ="2px solid red";
   }
 }
 
-//validate email, no validated added to form as the email input cause problems with the js
-function validateEmail(email) {
-  //https://digitalfortress.tech/tips/top-15-commonly-used-regex/ uncommon email check.
+//validate email, generate errors if validation fails, novalidated added to form, email input cause problems with the js
+function validateEmailInput(email) {
   const emailRegEx = /^([a-z0-9_\.\+-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
   const validateEmail = emailRegEx.test(email.value);
-  return validateEmail;
+  if (validateEmail){ 
+    emailError.innerHTML = "";
+    email.style.border ="1px solid grey";
+    return true;
+  } else {
+    emailError.innerHTML = `Please enter a valid email address`;
+    email.style.border ="2px solid red";
+  }
 }
 
+//validate form
 function validateContactForm(submission){
   submission.preventDefault();
-
-  //check runs through all if statements if one is false success container not displayed.
-  let successCheck = true;
 
   //clear success container if resubmitted wrong, remove main class to avoid green box
   successContainer.innerHTML = "";
   successContainer.classList.remove("main-item");
 
-  if (!checkLength(fullname.value, 0)) {
-    fullnameError.innerHTML = `Please enter you name.`;
-    fullname.style.border ="2px solid red";
-    successCheck = false;
-  } else{
-    //clear a previous error when correcting
-    fullnameError.innerHTML = "";
-    fullname.style.border ="1px solid grey";
-  }
+  //variables assigned true if they pass, and errors generated on fail.
+  const a = validatedInputLength(fullname, 0, fullnameError);
+  const b = validatedInputLength(subject, 9, subjectError);
+  const c = validateEmailInput(email);
+  const d = validatedInputLength(address, 24, addressError);
 
-  if (!validateEmail(email)) {
-    emailError.innerHTML = `Please enter a valid email address`;
-    email.style.border ="2px solid red";
-    successCheck = false;
-  } else{
-    emailError.innerHTML = "";
-    email.style.border ="1px solid grey";
-  }
-
-  if (!checkLength(subject.value, 9)) {
-    subjectError.innerHTML = `Your subject must have a minium of 10 characters.`;
-    subject.style.border ="2px solid red";
-    successCheck = false;
-  } else{
-    subjectError.innerHTML = "";
-    subject.style.border ="1px solid grey";
-  }
-
-  if (!checkLength(address.value, 24)) {
-    addressError.innerHTML = `Your address must have a minimum of 25 characters.`;
-    address.style.border ="2px solid red";
-    successCheck = false;
-  } else{
-    addressError.innerHTML = "";
-    address.style.border ="1px solid grey";
-  }
-
-  //if all validation passes form submitted and success div displayed 
-  if(successCheck) {
+  //if all variables true form submitted and success div displayed 
+  if(a && b && c && d) {
     successContainer.classList.add("main-item")
     successContainer.innerHTML = "<p>Success, your query has been submitted.</p>"
+    //scrolls to success container on submit.
+    successContainer.scrollIntoView();
     form.reset();
   }
-
-  
 }
 
-//on submit run validation check
+//on submit run form validation
 form.addEventListener("submit", validateContactForm);

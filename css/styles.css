@@ -12,6 +12,7 @@ body {
 }
 
 .page-wrapper {
+  width: 94%;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -55,6 +56,7 @@ footer a {
 
 ul {
   margin: 0;
+  padding: 0;
 }
 
 li {
@@ -123,6 +125,7 @@ img {
   width: 100%;
   max-width: 700px;
   padding: 20px;
+  margin: 0 auto 20px auto;
 }
 
 .alive {
@@ -165,7 +168,7 @@ section.contact-form input.cta {
 form {
   display: flex;
   flex-direction: column;
-  min-width: 450px;
+  max-width: 800px;
   width: 100%;
 }
 
@@ -201,7 +204,7 @@ form {
   border-left: 25px #c2ff3b;
   border-right: 7px #c2ff3b;
   border-style: double;
-  margin-bottom: 200px;
+  margin: 0 auto 200px auto;
   animation: colour-change 5s linear infinite;
 }
 
@@ -360,4 +363,11 @@ form {
 
 .hidden {
   display: none;
+}
+
+@media only screen and (max-width: 700px) {
+  body {
+    background-repeat: repeat;
+    background-size: auto;
+  }
 }

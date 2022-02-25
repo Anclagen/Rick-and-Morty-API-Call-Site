@@ -59,7 +59,6 @@ function createCharactersContent(data, container, runs) {
 callApiCharacters(url, "character", characterContainer, 10);
 
 
-
 //results navigation, to browse other pages of the api
 let pageNumber = 1; 
 
@@ -96,7 +95,6 @@ showMoreBtn.addEventListener("click", fetchMoreContent);
 //change page in api to display next or previous 20 results
 function fetchNextPage(){
   pageNumber = pageNumber + 1;
-  console.log(pageNumber);
   let query = pageQuery + pageNumber;
   callApiCharacters(url, query, characterContainer, 20);
   pageNumberContainer.innerHTML = `Page ${pageNumber} of 42`
