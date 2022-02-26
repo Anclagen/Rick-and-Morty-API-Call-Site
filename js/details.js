@@ -43,11 +43,11 @@ async function createCharacterContent(data, container){
     const gender = data.gender;
 
     //adding custom styling to status based on dead or alive
-    let status = "<p>Status: Unknown</p>"
+    let status = "<p>Status: Unknown</p>";
     if (data.status === "Alive") {
-      status = `<p>Status: <span class="alive">Alive</span></p>`
+      status = `<p>Status: <span class="alive">Alive</span></p>`;
     } else if(data.status === "Dead") {
-      status = `<p>Status: <span class="dead">Dead</span></p>`
+      status = `<p>Status: <span class="dead">Dead</span></p>`;
     };
 
     //get first and last episode api urls

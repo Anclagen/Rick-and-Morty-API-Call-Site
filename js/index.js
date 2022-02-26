@@ -8,7 +8,7 @@ const characterContainer = document.querySelector(".characters");
 const showMoreBtn = document.querySelector("#show-more");
 const previousBtn = document.querySelector(".previous-page");
 const nextBtn = document.querySelector(".next-page");
-const pageNumberContainer = document.querySelector(".page-number")
+const pageNumberContainer = document.querySelector(".page-number");
 
 
 //fetch api character list, they are split into arrays of 20, default without page no is page 1
@@ -80,13 +80,13 @@ if (runs === 20){
 }
 
 //required url ending, just add page number
-const pageQuery = "character/?page="
+const pageQuery = "character/?page=";
 
 // add the last 10 results of page one
 function fetchMoreContent(){
   callApiCharacters(url, "character", characterContainer, 20);
   pageNumberContainer.classList.remove("hidden");
-  pageNumberContainer.innerHTML = `Page ${pageNumber} of 42`
+  pageNumberContainer.innerHTML = `Page ${pageNumber} of 42`;
 }
 
 //fetches 20 results max for page 1 of characters
@@ -97,14 +97,14 @@ function fetchNextPage(){
   pageNumber = pageNumber + 1;
   let query = pageQuery + pageNumber;
   callApiCharacters(url, query, characterContainer, 20);
-  pageNumberContainer.innerHTML = `Page ${pageNumber} of 42`
+  pageNumberContainer.innerHTML = `Page ${pageNumber} of 42`;
 }
 
 function fetchPreviousPage(){
   pageNumber = pageNumber - 1;
   let query = pageQuery + pageNumber;
   callApiCharacters(url, query, characterContainer, 20);
-  pageNumberContainer.innerHTML = `Page ${pageNumber} of 42`
+  pageNumberContainer.innerHTML = `Page ${pageNumber} of 42`;
 }
 
 //previous and next buttons event listeners
