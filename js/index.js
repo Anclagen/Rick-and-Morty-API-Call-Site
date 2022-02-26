@@ -29,11 +29,10 @@ async function callApiCharacters(url, query, container, runs) {
 function createCharactersContent(data, container, runs) {
   container.innerHTML = "";
   for(let i = 0; i < runs; i++){
-
     //fixes the last page of result as there are only 6, function calls 20
     if(data.results[i] === undefined){
       nextBtn.classList.add("hidden");
-      break
+      break;
     }
 
     const id = data.results[i].id;

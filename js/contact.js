@@ -52,7 +52,7 @@ function validateContactForm(submission){
 
   //if all variables true form submitted and success div displayed 
   if(a && b && c && d) {
-    successContainer.classList.add("main-item")
+    successContainer.classList.add("main-item");
     successContainer.innerHTML = "<p>Success, your query has been submitted.</p>"
     //scrolls to success container on submit.
     successContainer.scrollIntoView();
