@@ -1,9 +1,4 @@
 {
-  "cSpell.words": [
-    "Btns",
-    "Morty",
-    "novalidated",
-    "randomiser",
-    "Welp"
-  ]
+  "cSpell.words": ["Btns", "Morty", "novalidated", "randomiser", "Welp"],
+  "liveServer.settings.port": 5501
 }
