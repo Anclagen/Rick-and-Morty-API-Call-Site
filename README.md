@@ -14,6 +14,8 @@ Development Stages
 - Create a simple website with HTML and CSS
 - Use Javascript
 
+[Live Version](https://strong-zabaione-835b25.netlify.app)
+
 ## Built With
 
 - ![HTML5](https://img.shields.io/badge/-HTML5-E34F26?logo=html5&logoColor=white&logoWidth=30&style=plastic)
@@ -26,17 +28,22 @@ Development Stages
 
 ## Getting Started
 
-[Live Version](https://strong-zabaione-835b25.netlify.app)
+1. Simply clone the repo:
 
-<!-- ## Contributing
+```bash
+git clone https://github.com/Anclagen/Rick-and-Morty-API-Call-Site.git
+```
 
-Here you can detail any information you want to provide regarding contributing to the project. For big projects you will usually have a separate `CONTRIBUTING.md` and link to it, but for smaller projects you can simply include instructions here. These instructions can simply detail the process you want a person to take, such as to make sure to open a pull request so code can be reviewed. -->
+## Contributing
+
+This project requires no contrubutions.
 
 ## Contact
 
-This is where you can leave your social links for people to contact you, such as a LinkedIn profile or Twitter link e.g.
+[<img src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white">](https://discordapp.com/users/178264761199362048)
 
-[My LinkedIn page](https://www.linkedin.com/in/alexander-barrett-64568a47/)
+
+[<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">](https://www.linkedin.com/in/alexander-barrett-64568a47/)
 
 ## License
 
