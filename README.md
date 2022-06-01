@@ -6,7 +6,7 @@ A simple website generating content using an API as part of my JavaScript 1 cour
 
 ## Description
 
-The aim of the project was to create a website to display content from an API of are choosing.
+The aim of the project was to create a website to display content from an API of are choosing. As well as provide a contact form which we validated using JavaScript.
 
 Development Stages
 
